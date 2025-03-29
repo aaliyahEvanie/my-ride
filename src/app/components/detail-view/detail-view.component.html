@@ -1,0 +1,9 @@
+<div style="margin-top: 62px;">
+    <a (click)="goHome()">  Home</a>
+    <div ngIf="bike; else noBike">
+        {{bike?.title}}
+    </div>
+    <ng-template #noBike>
+        Unable to retrieve information
+    </ng-template>
+</div>

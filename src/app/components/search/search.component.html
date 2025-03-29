@@ -10,13 +10,21 @@
             <div class="card">
                 <p-dataview #dv [value]="bikes()">
                     <ng-template #list let-items>
-                        <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                            <div class="col-span-12" *ngFor="let item of items; let first = first" class="col-span-12">
-                                <div class="flex flex-col"
-                                    [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }"
-                                >
-                                    <div  style="border-bottom: 4px black;" >
-                                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                         <div class="col-span-12" *ngFor="let item of items; let first = first" class="col-span-12" style="margin-bottom: 12px;"> 
+                                <div style="border: 2px solid #5CCAEF; display: flex; justify-content: space-between; padding: 12px; margin-left: 12px; margin-right: 12px;
+                                    border-radius: 12px;">
+                                    <div style="max-width: 80%;">
+                                        <h4>{{item.title}}</h4>
+                                        <p>{{item.description}}</p>
+                                    </div>
+                                    
+                                    <p-button (click)="onViewDetails(item)">View Details</p-button>
+                                </div>   
+                            
+                                <!-- <div class="flex flex-col"
+                                    [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }">
+                                    <div  style="border-bottom: 4px black; margin-bottom: 16px;" >
+                                        <div style="display: flex; justify-content: space-between; padding: 12px; ">
                                             <div>
                                                 <span class="font-medium text-secondary text-sm">{{ item.title }}</span>
                                                 <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">{{ item.description }}</div>
@@ -26,14 +34,13 @@
                                                     class="bg-surface-0 dark:bg-surface-900 flex items-center gap-2 justify-center py-1 px-2"
                                                     style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
                                                 >
-                                             <p-button>View Details</p-button>
+                                    
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                        </div>
                     </ng-template>
                 </p-dataview>
             </div>
@@ -42,5 +49,16 @@
             <p>No stolen bikes found.</p>
         </ng-template>
     </div>
+    <p-drawer header="Bike Details" [(visible)]="visible2" position="right" [modal]="true" > 
+        <ng-container *ngIf="bikeDetails; else noDataTemplate">
+            <h2>{{ bikeDetails.title }}</h2>
+            <img src={{bikeDetails.large_img}}/> 
+        </ng-container>        
+          <ng-template #noDataTemplate>
+            <h2>No Data Available</h2>
+            <p>Try again later.</p>
+          </ng-template>
+    </p-drawer>
+    
 
 </section>

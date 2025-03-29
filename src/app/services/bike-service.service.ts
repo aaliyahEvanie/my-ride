@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { BikeObject } from '../types/bike-object';
 import { map } from 'rxjs/operators';
+import { Bikedetail } from '../types/bikedetail';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class BikeServiceService {
   constructor(private http: HttpClient) { }
 
   searchByCity(city: string): Observable<BikeObject[]> {  
-    return this.http.get<{ bikes: any[] }>(this.apiUrl + '/search').pipe(
+    const searchByCityUrl = this.apiUrl+ '/search?page=1&per_page=25&location='+ city +"&stolenness=proximity"
+    return this.http.get<{ bikes: any[] }>(searchByCityUrl).pipe(
       map((response: any) =>
         response.bikes.map((bike: { id: any; date_stolen: number; description: any; frame_colors: any; frame_model: any; status: any; title: any; url: any; }) => ({
           id: bike.id,
@@ -30,5 +32,19 @@ export class BikeServiceService {
         }))
       )
     );
+    //add error catch
   }
+
+  getBicycleDetails(id: number): Observable<Bikedetail>{
+    const url = `${this.apiUrl}/bikes/${id}`
+    return this.http.get<{bike: any}>(url).pipe(
+      map(response => {
+        const bike = response.bike;
+        return {
+        ...bike
+        }
+      })
+    )
+  }
+  //error handling {"error": "Couldn't find Bike with id="XXXXXXX"}
 }

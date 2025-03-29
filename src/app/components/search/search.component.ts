@@ -2,15 +2,18 @@ import { AfterViewInit, Component, EventEmitter, inject, OnInit, Output, signal,
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { DataViewModule } from 'primeng/dataview';
+import { DrawerModule } from 'primeng/drawer'
 import { FormsModule } from '@angular/forms';
 import { Loader } from "@googlemaps/js-api-loader"
 import { BikeServiceService } from '../../services/bike-service.service';
 import { BikeObject } from '../../types/bike-object';
+import { Bikedetail } from '../../types/bikedetail';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [ButtonModule, FormsModule, DataViewModule, CommonModule],
+  imports: [ButtonModule, FormsModule, DataViewModule, CommonModule, DrawerModule],
   providers: [BikeServiceService],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
@@ -23,38 +26,33 @@ export class SearchComponent implements OnInit, AfterViewInit {
   queryWait: boolean | undefined;
   private bikeService = inject(BikeServiceService);
   results: BikeObject[] = []
+  bikeDetails: Bikedetail | undefined
   bikes = signal<BikeObject[]>([])
+  visible2: boolean = false;
 
-  constructor() {
+  constructor(
+     private router: Router,
+     private route: ActivatedRoute ) {
     
   }
 
   ngOnInit() {
+    
   }
 
   ngAfterViewInit() {
-      this.getPlaceAutocomplete();
   }
 
-
-  private getPlaceAutocomplete() {
-    const loader = new Loader({
-      apiKey: "AIzaSyD86kzbC9k_O6Pvo2mWK0x1cGeWb4m6jvw",
-      version: "weekly",
-      
-    });
-    
-    loader.load().then(async () => {
-      const response = await google.maps.importLibrary("places") as google.maps.Place;
-      console.log(response)
-    
-    });
-  }
   public onSearch(){
     this.bikeService.searchByCity('Amsterdam').subscribe((bikes)=> {
       this.results = bikes   
       this.bikes.set(bikes)   
     })
+  }
+
+  public onViewDetails(item: BikeObject){
+    const id = item.id
+    this.router.navigate(['/bike', id]) 
   }
 
   invokeEvent(place: Object) {
