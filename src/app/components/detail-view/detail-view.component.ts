@@ -3,11 +3,13 @@ import { BikeServiceService } from '../../services/bike-service.service';
 import { Bikedetail } from '../../types/bikedetail';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-detail-view',
   standalone: true,
-  imports: [],
+  imports: [CarouselModule, ButtonModule],
   providers: [BikeServiceService, CommonModule, RouterLink],
   templateUrl: './detail-view.component.html',
   styleUrl: './detail-view.component.css'
@@ -16,6 +18,8 @@ export class DetailViewComponent {
   private bikeService = inject(BikeServiceService);
   bike: Bikedetail | undefined
   bikeId: number | undefined
+  responsiveOptions: any[] | undefined;
+
 
   constructor(private route: ActivatedRoute, private router: Router){}
 
@@ -26,6 +30,30 @@ export class DetailViewComponent {
       this.bike = bicycle
       console.log(this.bike)
     }) 
+
+
+    this.responsiveOptions = [
+      {
+          breakpoint: '1400px',
+          numVisible: 2,
+          numScroll: 1
+      },
+      {
+          breakpoint: '1199px',
+          numVisible: 3,
+          numScroll: 1
+      },
+      {
+          breakpoint: '767px',
+          numVisible: 2,
+          numScroll: 1
+      },
+      {
+          breakpoint: '575px',
+          numVisible: 1,
+          numScroll: 1
+      }
+  ]
   }
   goHome(){
     this.router.navigate(['/'])

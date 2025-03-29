@@ -1,7 +1,36 @@
-<div style="margin-top: 62px;">
-    <a (click)="goHome()">  Home</a>
-    <div ngIf="bike; else noBike">
-        {{bike?.title}}
+<div style="margin-top: 24px; padding: 24px; ">
+    <div style="margin-bottom: 24px;">
+        <h3>
+            <a (click)="goHome()" style="color: #00A8E0;">
+                <i class="pi pi-chevron-left" style="color: #00A8E0;"></i>    
+                Home
+            </a>
+        </h3>
+        
+    </div>
+    <div ngIf="bike; else noBike" style="border: 2px solid #00A8E0; border-radius: 12px; height: 70vh; padding: 16px;">
+        <div style="display: flex; flex-direction: column;">
+            <div>{{bike?.title}}</div>
+            <div>{{bike?.frame_size}}</div>
+            <div>{{bike?.frame_model}}</div>
+            <div>{{bike?.frame_colors}}</div>
+            
+            <div>{{bike?.status}}</div>
+            <div>{{bike?.stolen}}</div>
+            <div>{{bike?.year}}</div>
+            <div ngIf="bike?.public_images && bike.public_images.length > 0; else fallbackImage">
+                <p-carousel [value]="bike?.public_images || []" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+                    <ng-template let-image pTemplate="item">
+                        <div class="image-container">
+                            <img [src]="image.medium" [alt]="image.name"/>
+                        </div>
+                    </ng-template>
+                </p-carousel>
+            </div>
+            <ng-template #fallbackImage>
+                <img [src]="bike?.large_img" style="height: 100p; width: 100px;"/>
+            </ng-template>
+        </div>
     </div>
     <ng-template #noBike>
         Unable to retrieve information

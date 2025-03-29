@@ -16,23 +16,22 @@ export class BikeServiceService {
 
   constructor(private http: HttpClient) { }
 
+  /**TODO
+   * Enable various filters on the search like stolen and proximity to give more accurate results
+   */
+
   searchByCity(city: string): Observable<BikeObject[]> {  
-    const searchByCityUrl = this.apiUrl+ '/search?page=1&per_page=25&location='+ city +"&stolenness=proximity"
+    const searchByCityUrl = this.apiUrl+ '/search?page=1&per_page=25&location='+ city +"&stolenness=non"
     return this.http.get<{ bikes: any[] }>(searchByCityUrl).pipe(
       map((response: any) =>
-        response.bikes.map((bike: { id: any; date_stolen: number; description: any; frame_colors: any; frame_model: any; status: any; title: any; url: any; }) => ({
-          id: bike.id,
-          date_stolen: new Date(bike.date_stolen * 1000), // Convert Unix timestamp to Date
-          description: bike.description || '',
-          frame_colors: bike.frame_colors || [],
-          frame_model: bike.frame_model || '',
-          status: bike.status || '',
-          title: bike.title || '',
-          url: bike.url || ''
+        response.bikes.map((bike: BikeObject) => ({
+          ...bike
         }))
       )
     );
     //add error catch
+    //cache the results 
+    //add pagination and call to follow to next page
   }
 
   getBicycleDetails(id: number): Observable<Bikedetail>{
