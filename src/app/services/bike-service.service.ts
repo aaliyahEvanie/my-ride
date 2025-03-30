@@ -1,20 +1,23 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { BikeObject } from '../types/bike-object';
 import { catchError, map } from 'rxjs/operators';
 import { Bikedetail } from '../types/bikedetail';
+import { Severity } from '../types/messages';
+import { error } from 'console';
+import { MessageService } from './message-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BikeServiceService {
-
   private apiUrl = environment.bikeUrl
   response: BikeObject | undefined;
+  bikes: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
   /**TODO
    *  - Enable various filters on the search like stolen and proximity to give more accurate results
@@ -31,6 +34,7 @@ export class BikeServiceService {
         response.bikes.map((bike: BikeObject) => ({
           ...bike
         }))
+        
       ),
       catchError(this.handleError<BikeObject[]>('searchByCity', []))
     );
@@ -51,11 +55,9 @@ export class BikeServiceService {
       catchError(this.handleError<Bikedetail>(`getBicycleDetails/id=${id}`, ))
     )
   }
-/**
- * TODO:
- * connect to an errorMessage handler that the frontend can subscribe to
- */
+
   private handleError<T>(operation = 'operation', result?: T){
+    this.messageService.addMessage( Severity.ERROR, operation + 'Bike API Error', 'Failed to fetch bikes. Please try again.')
     return (error: any): Observable<T> => {
       console.error(error)
       return of(result as T)

@@ -9,6 +9,9 @@
         </h3>
       </ng-template>
     </p-menubar>  
+    <ng-container *ngIf="message">
+    <p-message  [severity]="message.severity" [text]="message.detail"></p-message>
+  </ng-container>
   </div>
 
 </main>
