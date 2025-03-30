@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   filteredCities: { name: string; }[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private cityService: CityService ) {
-    this.bikes.set(this.data.default)
+    // this.bikes.set(this.data.default)
   }
 
   ngOnInit() {
@@ -60,15 +60,12 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   public onSearch(){
-    
-    this.bikes.set(this.data)
-
-    // if(this.selectedCity?.name ){
-    //  this.bikeService.searchByCity(this.selectedCity?.name).subscribe((bikes)=> {
-    //     this.results = bikes   
-    //     this.bikes.set(bikes)   
-    //   })
-    // }
+    if(this.selectedCity?.name ){
+     this.bikeService.searchByCity(this.selectedCity?.name).subscribe((bikes)=> {
+        this.results = bikes   
+        this.bikes.set(bikes)   
+      })
+    }
   }
 
   public onViewDetails(item: BikeObject){
