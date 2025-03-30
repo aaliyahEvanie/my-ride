@@ -16,7 +16,6 @@ import { AutoCompleteModule } from 'primeng/autocomplete'
   standalone: true,
   imports: [ButtonModule, 
             FormsModule, 
-            
             DataViewModule, 
             CommonModule, 
             DrawerModule, 
@@ -49,18 +48,15 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   search(event: any) {
-    console.log('Search triggered:', event.query); // Debugging to ensure search is called
     this.cityService.searchCities(event.query)
       .then((cities) => {
-        this.filteredCities = cities.map(city => ({ name: city })); // Convert to objects
-        console.log('Filtered cities:', this.filteredCities); 
+        this.filteredCities = cities.map(city => ({ name: city })); 
       })
       .catch((err) => console.error('Error fetching cities:', err));
   }
 
   public onSearch(){
     if(this.selectedCity?.name ){
-      //todo truncate the country from the values also in the filter search property
      this.bikeService.searchByCity(this.selectedCity?.name).subscribe((bikes)=> {
         this.results = bikes   
         this.bikes.set(bikes)   

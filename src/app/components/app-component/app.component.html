@@ -1,12 +1,15 @@
 <main class="main">
-  <div class="flex flex-col" style="width: 100%;">
+  <div class="wrapper">
     <p-menubar >
       <ng-template pTemplate="start">
-        <h3>My Ride</h3>
+        <h3>
+          <a [routerLink]="['/']">
+            Bike Finder
+          </a>
+        </h3>
       </ng-template>
     </p-menubar>  
   </div>
 
 </main>
-
 <router-outlet />

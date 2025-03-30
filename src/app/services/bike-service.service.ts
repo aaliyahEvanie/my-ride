@@ -17,11 +17,15 @@ export class BikeServiceService {
   constructor(private http: HttpClient) { }
 
   /**TODO
-   * Enable various filters on the search like stolen and proximity to give more accurate results
+   *  - Enable various filters on the search like stolen and proximity to give more accurate results
+   *  - pagination 
+   *  - verification 
+   *  - Store of the searches (Add a clear on the frontend to reset)
+   * 
    */
 
   searchByCity(city: string): Observable<BikeObject[]> {  
-    const searchByCityUrl = this.apiUrl+ '/search?page=1&per_page=25&location='+ city +"&stolenness=non"
+    const searchByCityUrl = this.apiUrl+ '/search?location='+ city +"&distance=0&stolenness=proximity"
     return this.http.get<{ bikes: any[] }>(searchByCityUrl).pipe(
       map((response: any) =>
         response.bikes.map((bike: BikeObject) => ({

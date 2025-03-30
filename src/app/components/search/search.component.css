@@ -10,6 +10,24 @@
     background-color: #007bff !important;
     color: white !important;
   }
-.p-autocomplete-option{
-    
+.searchCard {
+  background: #2e2d2d;
+  border-radius: 12px;
+  border: 1px solid #00A8E0;
+  height: 80vh;
+  overflow-y: scroll;
+  padding: 16px;
+}
+.searchBar {
+  display: flex;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+.resultsContainer {
+
+}
+
+button.p-button{
+  color: white;
 }

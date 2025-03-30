@@ -36,7 +36,7 @@ export class CityService {
       this.autocompleteService.getPlacePredictions({input: query, types: ['(cities)']},
         (predictions, status) => {
           if(status === google.maps.places.PlacesServiceStatus.OK && predictions){
-            resolve(predictions.map((p) => p.description))
+            resolve(predictions.map((p) => p.structured_formatting.main_text))
           } else {
             resolve([])
           }

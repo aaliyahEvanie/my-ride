@@ -1,1 +1,18 @@
 @import "primeicons/primeicons.css";
+
+body{
+    background:  linear-gradient(
+        115deg,
+        hsl(0deg 0% 0%) 0%,
+        hsl(152deg 35% 28%) 63%,
+        hsl(152deg 35% 40%) 88%,
+        hsl(152deg 35% 49%) 98%,
+        hsl(152deg 45% 56%) 101%,
+        hsl(152deg 60% 63%) 101%,
+        hsl(152deg 78% 69%) 100%
+      ); 
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      overflow: hidden;
+}
