@@ -1,14 +1,12 @@
 <main class="main">
   <div class="wrapper">
-    <p-menubar >
-      <ng-template pTemplate="start">
+    <div  class="menuBar">
         <h3>
           <a [routerLink]="['/']">
             Bike Finder
           </a>
         </h3>
-      </ng-template>
-    </p-menubar>  
+     </div >  
     <ng-container *ngIf="message">
     <p-message  [severity]="message.severity" [text]="message.detail"></p-message>
   </ng-container>

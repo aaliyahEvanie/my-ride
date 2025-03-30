@@ -6,14 +6,17 @@
     background-color: transparent;
     margin-bottom: 24px;
 }
-.p-menubar {
+.menuBar{
     width: 100%;
     margin-top: 24px;
+    
     background-color: transparent !important;
+    border-bottom: 1px solid #72EEB4;
 }
 a:link{
     color: #72EEB4;
     text-decoration: none;
+    margin-left: 24px;
 }
 a:visited{
     color: #72EEB4;

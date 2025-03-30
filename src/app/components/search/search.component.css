@@ -22,7 +22,7 @@
 .searchBar {
   display: flex;
   padding: 16px;
-  background: #ffffff;
+  background:transparent;
   border-radius: 16px;
   margin-bottom: 16px;
 }
@@ -31,7 +31,8 @@
 }
 
 button.p-button{
-  color: white;
+  
+  font-weight: 800;
 }
 div.p-dataview-content{
   background: transparent !important;

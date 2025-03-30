@@ -24,7 +24,7 @@
     }
 }
 .leftColumn{
-    max-width: 30%; 
+    min-width: 30%; 
     height: 60vh; 
     display: flex; 
     flex-direction: column;

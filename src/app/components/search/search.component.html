@@ -51,7 +51,7 @@
               </ng-template>
               <div style="margin-left: 16px; display: flex; flex-direction: column;">
                 <h4>{{ item.title }}</h4>
-                <p>{{ item.description }}</p>
+                <p *ngIf="item.description">{{ item.description }}</p>
               </div>
             </div>
             <div style=" align-self: flex-end;">
