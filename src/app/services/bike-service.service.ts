@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { BikeObject } from '../types/bike-object';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Bikedetail } from '../types/bikedetail';
 
 @Injectable({
@@ -31,7 +31,8 @@ export class BikeServiceService {
         response.bikes.map((bike: BikeObject) => ({
           ...bike
         }))
-      )
+      ),
+      catchError(this.handleError<BikeObject[]>('searchByCity', []))
     );
     //add error catch
     //cache the results 
@@ -46,8 +47,16 @@ export class BikeServiceService {
         return {
         ...bike
         }
-      })
+      }),
+      catchError(this.handleError<Bikedetail>(`getBicycleDetails/id=${id}`, ))
     )
   }
-  //error handling {"error": "Couldn't find Bike with id="XXXXXXX"}
+
+  private handleError<T>(operation = 'operation', result?: T){
+    return (error: any): Observable<T> => {
+      console.error(error)
+      return of(result as T)
+    }
+  }
+  
 }
