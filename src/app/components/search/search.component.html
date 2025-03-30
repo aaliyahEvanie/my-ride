@@ -14,11 +14,12 @@
         pRipple
         (click)="onSearch()"
         [disabled]="selectedCity === null">
-        Find Bicycles 
+       Search
         <span class="pi pi-search"></span>
       </button>
     </div>
   </div>
+  <!-- TODO skeleton loader  -->
   <div class="resultsContainer">
     <p-dataview #dv [value]="bikes()">
       <ng-template #list let-items>

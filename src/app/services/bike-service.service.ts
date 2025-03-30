@@ -23,7 +23,7 @@ export class BikeServiceService {
    *  - Enable various filters on the search like stolen and proximity to give more accurate results
    *  - pagination 
    *  - verification 
-   *  - Store of the searches (Add a clear on the frontend to reset)
+   *  - Store of the searches for retrievable when paging back from detail view (Add a clear on the frontend to reset)
    * 
    */
 

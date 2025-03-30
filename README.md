@@ -1,27 +1,42 @@
 # MyRide
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.16.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. 
+Navigate to `http://localhost:4200/`
 
-## Code scaffolding
+## Assignment Details
+#madesimple and #makeithappen.
+Use the open API: https://bikeindex.org/documentation/api_v3
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Acceptance Criteria
+- Bike Search and Bike Details view
+- Search by a given city name GET /v3/search
+- Navigate to detail view to see more information GET /v3/bikes/{id}
+- Display information 
 
-## Build
+### Tech stack 
+Angular 18 
+Typescript 
+Primeng component library 
+Google places API ~ for accurate city search results 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Implemented Features
+1.  Search by city name with stolenness=proximity and distance=0. Limiting results to city only
+2. Error handling message service to display when a call fails
+3. Display the a lit of results from the search
+    - Title 
+    - Thumb image 
+    - Description
+    - View More Button
+4. Detail view
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Areas for improvements
+1. Allow user to search with the additional parameters
+2. Remove the messages
+3. Show a default list based on your IP
+4. When navigating back to the home page have the previous search results persisted and when the user starts typing for a new search clear out the previous results 
+5. Add a skeleton loader 
+6. Improve the styling to use the design token system from primeng

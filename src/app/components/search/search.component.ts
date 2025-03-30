@@ -32,7 +32,6 @@ export class SearchComponent implements OnInit, AfterViewInit {
 
   private bikeService = inject(BikeServiceService);
   results: BikeObject[] = []
-  bikeDetails: Bikedetail | undefined
   bikes = signal<BikeObject[]>([])
   visible2: boolean = false;
   filteredCities: { name: string; }[] = [];
@@ -41,7 +40,6 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    
   }
 
   ngAfterViewInit() {
