@@ -10,6 +10,7 @@ import { Bikedetail } from '../../types/bikedetail';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CityService } from '../../services/cityservice.service';
 import { AutoCompleteModule } from 'primeng/autocomplete'
+import * as bikesData from '../../types/dummyData.json'
 
 @Component({
   selector: 'app-search',
@@ -25,7 +26,10 @@ import { AutoCompleteModule } from 'primeng/autocomplete'
   styleUrl: './search.component.css'
 })
 export class SearchComponent implements OnInit, AfterViewInit {
-  
+  layout: string = 'grid';
+  options = ['list', 'grid'];
+
+
   selectedCity: {name: string} | null = null;
   
 
@@ -33,10 +37,12 @@ export class SearchComponent implements OnInit, AfterViewInit {
   private bikeService = inject(BikeServiceService);
   results: BikeObject[] = []
   bikes = signal<BikeObject[]>([])
+  data: any = bikesData
   visible2: boolean = false;
   filteredCities: { name: string; }[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private cityService: CityService ) {
+    this.bikes.set(this.data.default)
   }
 
   ngOnInit() {
@@ -54,12 +60,15 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   public onSearch(){
-    if(this.selectedCity?.name ){
-     this.bikeService.searchByCity(this.selectedCity?.name).subscribe((bikes)=> {
-        this.results = bikes   
-        this.bikes.set(bikes)   
-      })
-    }
+    
+    this.bikes.set(this.data)
+
+    // if(this.selectedCity?.name ){
+    //  this.bikeService.searchByCity(this.selectedCity?.name).subscribe((bikes)=> {
+    //     this.results = bikes   
+    //     this.bikes.set(bikes)   
+    //   })
+    // }
   }
 
   public onViewDetails(item: BikeObject){

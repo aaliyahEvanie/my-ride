@@ -40,3 +40,4 @@ Google places API ~ for accurate city search results
 4. When navigating back to the home page have the previous search results persisted and when the user starts typing for a new search clear out the previous results 
 5. Add a skeleton loader 
 6. Improve the styling to use the design token system from primeng
+7. Environment build out service for google maps api

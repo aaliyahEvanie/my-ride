@@ -1,5 +1,10 @@
 @import "primeicons/primeicons.css";
 
+:root{
+  --p-content-background: transparent;
+  --p-dataview-content-background: transparent;
+}
+
 body{
     background:  linear-gradient(
         115deg,

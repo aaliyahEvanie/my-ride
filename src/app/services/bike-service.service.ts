@@ -38,9 +38,6 @@ export class BikeServiceService {
       ),
       catchError(this.handleError<BikeObject[]>('searchByCity', []))
     );
-    //add error catch
-    //cache the results 
-    //add pagination and call to follow to next page
   }
 
   getBicycleDetails(id: number): Observable<Bikedetail>{

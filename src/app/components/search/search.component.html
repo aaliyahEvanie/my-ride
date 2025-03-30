@@ -21,7 +21,7 @@
   </div>
   <!-- TODO skeleton loader  -->
   <div class="resultsContainer">
-    <p-dataview #dv [value]="bikes()">
+    <p-dataview  [value]="bikes()">
       <ng-template #list let-items>
         <div
           class="col-span-12"
@@ -39,18 +39,26 @@
               border-radius: 12px;"
 >
             <div style="max-width: 80%; display: flex; flex-direction: row">
-              <div>
+              <ng-container *ngIf="item.thumb !== null; else fallbackImg">
                 <img
                   [src]="item.thumb"
-                  style="height: 50px; width: 50px; border-radius: 12px"
-                />
-              </div>
-              <div>
+                  style="height: 50px; width: 50px; border-radius: 12px"/>
+              </ng-container>
+              <ng-template #fallbackImg>
+                <img
+                src="/assets/images/colorBicycle.svg"
+                style="height: 50px; width: 50px; border-radius: 12px;"/>
+              </ng-template>
+              <div style="margin-left: 16px; display: flex; flex-direction: column;">
                 <h4>{{ item.title }}</h4>
                 <p>{{ item.description }}</p>
               </div>
             </div>
-            <p-button (click)="onViewDetails(item)">View Details</p-button>
+            <div style=" align-self: flex-end;">
+              <button
+              pButton
+              pRipple (click)="onViewDetails(item)">View Details</button>
+            </div>
           </div>
         </div>
       </ng-template>

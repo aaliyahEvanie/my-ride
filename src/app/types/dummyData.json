@@ -1,0 +1,332 @@
+[
+    {
+        "date_stolen": 1682197200,
+        "description": null,
+        "frame_colors": [
+            "Black"
+        ],
+        "frame_model": null,
+        "id": 1512901,
+        "is_stock_img": false,
+        "large_img": null,
+        "location_found": null,
+        "manufacturer_name": "Rad Power Bikes",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "MS1H20V0393",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": null,
+        "title": "2021 Rad Power Bikes",
+        "url": "https://bikeindex.org/bikes/1512901",
+        "year": 2021,
+        "propulsion_type_slug": "pedal-assist",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1676275200,
+        "description": "",
+        "frame_colors": [
+            "Black"
+        ],
+        "frame_model": "Urban Arrow Performance Plus",
+        "id": 1462989,
+        "is_stock_img": false,
+        "large_img": null,
+        "location_found": null,
+        "manufacturer_name": "Urban Arrow",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "2207812RFMM",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": null,
+        "title": "2022 Urban Arrow Urban Arrow Performance Plus cargo bike (front storage)",
+        "url": "https://bikeindex.org/bikes/1462989",
+        "year": 2022,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "cargo"
+    },
+    {
+        "date_stolen": 1661439600,
+        "description": "",
+        "frame_colors": [
+            "Black"
+        ],
+        "frame_model": "Personal bike M0472",
+        "id": 1378532,
+        "is_stock_img": false,
+        "large_img": null,
+        "location_found": null,
+        "manufacturer_name": "Batavus",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "BA5047814",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": null,
+        "title": "Batavus Personal bike M0472",
+        "url": "https://bikeindex.org/bikes/1378532",
+        "year": null,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1660755667,
+        "description": null,
+        "frame_colors": [
+            "Yellow or Gold"
+        ],
+        "frame_model": null,
+        "id": 1375215,
+        "is_stock_img": false,
+        "large_img": "https://files.bikeindex.org/uploads/Pu/622803/large_1581534671-vRfpJ___media_library_original_960_720.jpeg",
+        "location_found": null,
+        "manufacturer_name": "Frooom",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "61D3UAA51002704",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": "https://files.bikeindex.org/uploads/Pu/622803/small_1581534671-vRfpJ___media_library_original_960_720.jpeg",
+        "title": "Frooom",
+        "url": "https://bikeindex.org/bikes/1375215",
+        "year": null,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1651096800,
+        "description": null,
+        "frame_colors": [
+            "Red"
+        ],
+        "frame_model": "Urban D53",
+        "id": 1280586,
+        "is_stock_img": false,
+        "large_img": "https://files.bikeindex.org/uploads/Pu/561559/large_948BD107-450D-4B26-8745-C157B9D97445.jpeg",
+        "location_found": null,
+        "manufacturer_name": "Altec",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "2018532919",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": "https://files.bikeindex.org/uploads/Pu/561559/small_948BD107-450D-4B26-8745-C157B9D97445.jpeg",
+        "title": "2018 Altec Urban D53",
+        "url": "https://bikeindex.org/bikes/1280586",
+        "year": 2018,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1649012400,
+        "description": null,
+        "frame_colors": [
+            "Black"
+        ],
+        "frame_model": null,
+        "id": 1339619,
+        "is_stock_img": false,
+        "large_img": null,
+        "location_found": null,
+        "manufacturer_name": "Batavus",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "BA8191979",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": null,
+        "title": "Batavus",
+        "url": "https://bikeindex.org/bikes/1339619",
+        "year": null,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1640682000,
+        "description": "",
+        "frame_colors": [
+            "Yellow or Gold"
+        ],
+        "frame_model": "Frooom",
+        "id": 776164,
+        "is_stock_img": false,
+        "large_img": "https://files.bikeindex.org/uploads/Pu/272611/large_1576791884-egRmE.jpg",
+        "location_found": null,
+        "manufacturer_name": "Other",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "61D3UAA37002746",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": "https://files.bikeindex.org/uploads/Pu/272611/small_1576791884-egRmE.jpg",
+        "title": "Other Frooom",
+        "url": "https://bikeindex.org/bikes/776164",
+        "year": null,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1633849200,
+        "description": "",
+        "frame_colors": [
+            "White"
+        ],
+        "frame_model": "N/A",
+        "id": 1109019,
+        "is_stock_img": false,
+        "large_img": "https://files.bikeindex.org/uploads/Pu/459111/large_1607086874-ZDlbv___media_library_original_960_720.jpeg",
+        "location_found": null,
+        "manufacturer_name": "No brand",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "KM16B03272",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": "https://files.bikeindex.org/uploads/Pu/459111/small_1607086874-ZDlbv___media_library_original_960_720.jpeg",
+        "title": "2021 No brand N/A",
+        "url": "https://bikeindex.org/bikes/1109019",
+        "year": 2021,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1631278800,
+        "description": "",
+        "frame_colors": [
+            "Green"
+        ],
+        "frame_model": "Bahia",
+        "id": 945219,
+        "is_stock_img": false,
+        "large_img": "https://files.bikeindex.org/uploads/Pu/478288/large_Toby_s_Bike.png",
+        "location_found": null,
+        "manufacturer_name": "Gazelle",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "9102724",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": "https://files.bikeindex.org/uploads/Pu/478288/small_Toby_s_Bike.png",
+        "title": "Gazelle Bahia",
+        "url": "https://bikeindex.org/bikes/945219",
+        "year": null,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1621931555,
+        "description": null,
+        "frame_colors": [
+            "Black"
+        ],
+        "frame_model": "U4",
+        "id": 1066393,
+        "is_stock_img": false,
+        "large_img": null,
+        "location_found": null,
+        "manufacturer_name": "Cortina Cycles",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "CO1701018812",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.37,
+            4.9
+        ],
+        "stolen_location": "Amsterdam, NH, NL",
+        "thumb": null,
+        "title": "Cortina Cycles U4",
+        "url": "https://bikeindex.org/bikes/1066393",
+        "year": null,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    },
+    {
+        "date_stolen": 1527400800,
+        "description": "",
+        "frame_colors": [
+            "White"
+        ],
+        "frame_model": null,
+        "id": 394535,
+        "is_stock_img": false,
+        "large_img": null,
+        "location_found": null,
+        "manufacturer_name": "Specialized",
+        "external_id": null,
+        "registry_name": null,
+        "registry_url": null,
+        "serial": "Unknown",
+        "status": "stolen",
+        "stolen": true,
+        "stolen_coordinates": [
+            52.13,
+            5.29
+        ],
+        "stolen_location": "Holland, NL",
+        "thumb": null,
+        "title": "2014 Specialized",
+        "url": "https://bikeindex.org/bikes/394535",
+        "year": 2014,
+        "propulsion_type_slug": "foot-pedal",
+        "cycle_type_slug": "bike"
+    }
+]
