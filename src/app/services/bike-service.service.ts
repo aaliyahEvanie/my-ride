@@ -51,7 +51,10 @@ export class BikeServiceService {
       catchError(this.handleError<Bikedetail>(`getBicycleDetails/id=${id}`, ))
     )
   }
-
+/**
+ * TODO:
+ * connect to an errorMessage handler that the frontend can subscribe to
+ */
   private handleError<T>(operation = 'operation', result?: T){
     return (error: any): Observable<T> => {
       console.error(error)
