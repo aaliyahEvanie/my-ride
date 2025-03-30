@@ -1,4 +1,4 @@
-<div style="margin-top: 24px; padding: 24px; ">
+<div style="margin-top: 24px; padding: 24px;  overflow-y: scroll;">
     <div style="margin-bottom: 24px;">
         <h3>
             <a (click)="goHome()" style="color: #00A8E0;">
@@ -6,33 +6,44 @@
                 Home
             </a>
         </h3>
-        
     </div>
-    <div ngIf="bike; else noBike" style="border: 2px solid #00A8E0; border-radius: 12px; height: 70vh; padding: 16px;">
-        <div style="display: flex; flex-direction: column;">
-            <div>{{bike?.title}}</div>
-            <div>{{bike?.frame_size}}</div>
-            <div>{{bike?.frame_model}}</div>
-            <div>{{bike?.frame_colors}}</div>
-            
-            <div>{{bike?.status}}</div>
-            <div>{{bike?.stolen}}</div>
-            <div>{{bike?.year}}</div>
-            <div ngIf="bike?.public_images && bike.public_images.length > 0; else fallbackImage">
-                <p-carousel [value]="bike?.public_images || []" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions">
-                    <ng-template let-image pTemplate="item">
-                        <div class="image-container">
-                            <img [src]="image.medium" [alt]="image.name"/>
-                        </div>
+    <ng-container *ngIf="bike; else noBikeDetails">
+        <div style="border: 2px solid #00A8E0; border-radius: 12px; height: 70vh; padding: 16px;">
+            <div style=" flex-direction: column;">
+                <div style=" display: flex; justify-content: space-between;">
+                    <h3>
+                        {{bike.title}}
+                    </h3>
+                    <ng-container *ngIf="bike?.stolen; else withOwner">
+                        <p-tag severity="danger" [rounded]="true" value="Stolen"></p-tag>
+                    </ng-container>
+                    <ng-template #withOwner>
+                        <p-tag severity="success" [rounded]="true" value="With Owner"></p-tag>
                     </ng-template>
-                </p-carousel>
+                </div>
+                <div>{{bike.frame_size}}</div>
+                <div>{{bike.frame_model}}</div>
+                <div>{{bike.frame_colors}}</div>
+                <div>{{bike.status}}</div>
+                <div>{{bike.year}}</div>
+                <ng-container *ngIf="bike?.public_images && bike.public_images.length > 0 else fallbackImage">
+                    <p-carousel [value]="bike.public_images || []" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+                        <ng-template let-image pTemplate="item">
+                            <div class="image-container">
+                                <img [src]="image.medium" [alt]="image.name" style="height: 250px; width: 250px;"/>
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                </ng-container>
+                <ng-template #fallbackImage>
+                    <img [src]="bike.large_img" style="height: 100p; width: 100px;"/>
+                </ng-template>
             </div>
-            <ng-template #fallbackImage>
-                <img [src]="bike?.large_img" style="height: 100p; width: 100px;"/>
-            </ng-template>
         </div>
-    </div>
-    <ng-template #noBike>
-        Unable to retrieve information
+    </ng-container>
+    <ng-template #noBikeDetails>
+        <h2> No bike details have been found</h2>
     </ng-template>
-</div>
+
+   
+</div>     

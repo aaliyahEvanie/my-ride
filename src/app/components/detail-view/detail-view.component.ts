@@ -5,12 +5,13 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
+import {Tag} from 'primeng/tag'
 
 @Component({
   selector: 'app-detail-view',
   standalone: true,
-  imports: [CarouselModule, ButtonModule],
-  providers: [BikeServiceService, CommonModule, RouterLink],
+  imports: [CarouselModule, ButtonModule, Tag, CommonModule],
+  providers: [BikeServiceService, RouterLink],
   templateUrl: './detail-view.component.html',
   styleUrl: './detail-view.component.css'
 })
@@ -28,7 +29,7 @@ export class DetailViewComponent {
     this.bikeId = Number(this.route.snapshot.paramMap.get('id'))
     this.bikeService.getBicycleDetails(this.bikeId).subscribe(bicycle => {
       this.bike = bicycle
-      console.log(this.bike)
+      console.log(this.bike.stolen === false)
     }) 
 
 
