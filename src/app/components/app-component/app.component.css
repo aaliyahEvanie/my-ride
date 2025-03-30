@@ -2,11 +2,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
+    background-color: transparent;
+    margin-bottom: 24px;
 }
 .p-menubar {
     width: 100%;
     margin-top: 24px;
+    background-color: transparent !important;
 }
 a:link{
     color: #72EEB4;

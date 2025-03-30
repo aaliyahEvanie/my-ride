@@ -17,12 +17,14 @@
   height: 80vh;
   overflow-y: scroll;
   padding: 16px;
+
 }
 .searchBar {
   display: flex;
   padding: 16px;
   background: #ffffff;
   border-radius: 16px;
+  margin-bottom: 16px;
 }
 .resultsContainer {
   margin-top: 24px;

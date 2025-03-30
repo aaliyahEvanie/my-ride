@@ -1,0 +1,38 @@
+.detailsContainer{
+    border: 2px solid #00A8E0; 
+    border-radius: 12px; 
+    height: 80vh; 
+    padding: 16px; 
+    background: #18181b;
+    overflow-y: scroll;
+}
+.header{
+    width: 100%;
+    justify-content: center ;
+    display: flex;
+    text-decoration: underline;
+}
+.detailsWrapper{
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+
+}
+.bicyleInfo{
+    >p {
+        font-size: 16px;
+    }
+}
+.leftColumn{
+    max-width: 30%; 
+    height: 60vh; 
+    display: flex; 
+    flex-direction: column;
+}
+.rightColumn {
+    width: 70%;
+    height: 60vh;
+    >p{
+        font-size: 16px;
+    }
+}

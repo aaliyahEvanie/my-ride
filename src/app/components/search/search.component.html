@@ -1,25 +1,25 @@
-<section class="searchCard">
-  <div class="searchBar">
-    <p-autoComplete
-      [(ngModel)]="selectedCity"
-      [suggestions]="filteredCities"
-      (completeMethod)="search($event)"
-      field="name"
-      placeholder="Search for a city"
-    >
-    </p-autoComplete>
-    <div class="card flex justify-center" style="margin-left: 16px">
-      <button
-        pButton
-        pRipple
-        (click)="onSearch()"
-        [disabled]="selectedCity === null">
-       Search
-        <span class="pi pi-search"></span>
-      </button>
-    </div>
+<div class="searchBar">
+  <p-autoComplete
+    [(ngModel)]="selectedCity"
+    [suggestions]="filteredCities"
+    (completeMethod)="search($event)"
+    field="name"
+    placeholder="Search for a city"
+  >
+  </p-autoComplete>
+  <div class="card flex justify-center" style="margin-left: 16px">
+    <button
+      pButton
+      pRipple
+      (click)="onSearch()"
+      [disabled]="selectedCity === null">
+     Search
+      <span class="pi pi-search"></span>
+    </button>
   </div>
-  <!-- TODO skeleton loader  -->
+</div>
+<section class="searchCard">
+<!-- TODO skeleton loader  -->
   <div class="resultsContainer">
     <p-dataview  [value]="bikes()">
       <ng-template #list let-items>

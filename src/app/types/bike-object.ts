@@ -2,7 +2,7 @@ export interface BikeObject {
     date_stolen: number;
     description: string | null;
     frame_colors: string[];
-    frame_model: string;
+    frame_model: string | null;
     id: number;
     is_stock_img: boolean;
     large_img: string;

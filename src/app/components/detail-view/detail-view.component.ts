@@ -7,6 +7,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import {Tag} from 'primeng/tag'
 
+
 @Component({
   selector: 'app-detail-view',
   standalone: true,
@@ -17,19 +18,21 @@ import {Tag} from 'primeng/tag'
 })
 export class DetailViewComponent {
   private bikeService = inject(BikeServiceService);
-  bike: Bikedetail | undefined
+  bike: Bikedetail | undefined | null
   bikeId: number | undefined
   responsiveOptions: any[] | undefined;
+ 
 
+  constructor(private route: ActivatedRoute, private router: Router){
 
-  constructor(private route: ActivatedRoute, private router: Router){}
+  }
 
 
   ngOnInit(){
     this.bikeId = Number(this.route.snapshot.paramMap.get('id'))
+ 
     this.bikeService.getBicycleDetails(this.bikeId).subscribe(bicycle => {
       this.bike = bicycle
-      console.log(this.bike.stolen === false)
     }) 
 
 

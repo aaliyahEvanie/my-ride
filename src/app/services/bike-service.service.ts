@@ -54,7 +54,6 @@ export class BikeServiceService {
   }
 
   private handleError<T>(operation = 'operation', result?: T){
-    this.messageService.addMessage( Severity.ERROR, operation + 'Bike API Error', 'Failed to fetch bikes. Please try again.')
     return (error: any): Observable<T> => {
       console.error(error)
       return of(result as T)

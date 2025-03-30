@@ -1,4 +1,4 @@
-<div style="margin-top: 24px; padding: 24px;  overflow-y: scroll;">
+<div style="overflow-y: scroll;">
     <div style="margin-bottom: 24px;">
         <h3>
             <a (click)="goHome()" style="color: #00A8E0;">
@@ -8,42 +8,48 @@
         </h3>
     </div>
     <ng-container *ngIf="bike; else noBikeDetails">
-        <div style="border: 2px solid #00A8E0; border-radius: 12px; height: 70vh; padding: 16px;">
-            <div style=" flex-direction: column;">
-                <div style=" display: flex; justify-content: space-between;">
-                    <h3>
-                        {{bike.title}}
-                    </h3>
+        <div class="detailsContainer" >
+            <div class="header">
+                <h1>{{bike.title}}</h1>
+            </div>
+            <div class="detailsWrapper">
+                <div class="leftColumn" >
+                    <ng-container *ngIf="bike?.public_images && bike.public_images.length > 0 else fallbackImage">
+                        <p-carousel [value]="bike.public_images || []" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+                            <ng-template let-image pTemplate="item">
+                                <div class="image-container">
+                                    <img [src]="image.medium" [alt]="image.name" style="height: 250px; width: 250px;"/>
+                                </div>
+                            </ng-template>
+                        </p-carousel>
+                    </ng-container>
+                    <ng-template #fallbackImage>
+                        <img [src]="bike.large_img" style="height: 100p; width: 100px;"/>
+                    </ng-template>
+                    <div class="bicycleInfo">
+                        <p *ngIf="bike.frame_size">Frame size: {{bike.frame_size}}</p>
+                        <p *ngIf="bike.frame_model">Frame model: {{bike.frame_model}}</p>
+                        <p *ngIf="bike.frame_colors">Frame color: {{bike.frame_colors}}</p>
+                        <p *ngIf="bike.year">Year: {{bike.year}}</p>
+                    </div>
+                </div>
+                <div class="rightColumn">
                     <ng-container *ngIf="bike?.stolen; else withOwner">
-                        <p-tag severity="danger" [rounded]="true" value="Stolen"></p-tag>
+                        <p-tag severity="danger" [rounded]="true" value="Stolen" class="flex-end"></p-tag>
                     </ng-container>
                     <ng-template #withOwner>
                         <p-tag severity="success" [rounded]="true" value="With Owner"></p-tag>
                     </ng-template>
+                    <ng-container *ngIf="bike?.stolen; else withOwner">
+                        <p>Stolen location: {{bike.stolen_record.location}}</p>
+                        <p>Theft Description: {{bike.stolen_record.theft_description}}</p>
+                        
+                    </ng-container>
                 </div>
-                <div>{{bike.frame_size}}</div>
-                <div>{{bike.frame_model}}</div>
-                <div>{{bike.frame_colors}}</div>
-                <div>{{bike.status}}</div>
-                <div>{{bike.year}}</div>
-                <ng-container *ngIf="bike?.public_images && bike.public_images.length > 0 else fallbackImage">
-                    <p-carousel [value]="bike.public_images || []" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions">
-                        <ng-template let-image pTemplate="item">
-                            <div class="image-container">
-                                <img [src]="image.medium" [alt]="image.name" style="height: 250px; width: 250px;"/>
-                            </div>
-                        </ng-template>
-                    </p-carousel>
-                </ng-container>
-                <ng-template #fallbackImage>
-                    <img [src]="bike.large_img" style="height: 100p; width: 100px;"/>
-                </ng-template>
             </div>
         </div>
     </ng-container>
     <ng-template #noBikeDetails>
         <h2> No bike details have been found</h2>
     </ng-template>
-
-   
 </div>     

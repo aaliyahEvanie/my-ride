@@ -29,11 +29,8 @@ export class SearchComponent implements OnInit, AfterViewInit {
   layout: string = 'grid';
   options = ['list', 'grid'];
 
-
   selectedCity: {name: string} | null = null;
   
-
-
   private bikeService = inject(BikeServiceService);
   results: BikeObject[] = []
   bikes = signal<BikeObject[]>([])
@@ -42,7 +39,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   filteredCities: { name: string; }[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private cityService: CityService ) {
-    // this.bikes.set(this.data.default)
+    
   }
 
   ngOnInit() {
