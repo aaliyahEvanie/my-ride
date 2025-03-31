@@ -48,3 +48,5 @@ Google places API ~ for accurate city search results
 9. Responsive design 
 10. Clean up state management
 11. Pagination?
+12. Testing on components and logic level
+

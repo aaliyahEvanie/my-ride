@@ -57,7 +57,7 @@
             <div style=" align-self: flex-end;">
               <button
               pButton
-              pRipple (click)="onViewDetails(item)">View Details</button>
+              pRipple (click)="selectItem(item.id)">View Details</button>
             </div>
           </div>
         </div>
@@ -65,3 +65,6 @@
     </p-dataview>
   </div>
 </section>
+<p-drawer [(visible)]="visible" header="Bicycle Details" position="right">
+  <app-detail-view  [selectedId]="selectedId" ></app-detail-view>
+</p-drawer>

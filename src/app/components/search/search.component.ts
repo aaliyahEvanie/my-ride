@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CityService } from '../../services/cityservice.service';
 import { AutoCompleteModule } from 'primeng/autocomplete'
 import * as bikesData from '../../types/dummyData.json'
+import { DetailViewComponent } from '../detail-view/detail-view.component';
 
 @Component({
   selector: 'app-search',
@@ -20,6 +21,7 @@ import * as bikesData from '../../types/dummyData.json'
             DataViewModule, 
             CommonModule, 
             DrawerModule, 
+            DetailViewComponent,
             AutoCompleteModule],
   providers: [BikeServiceService, CityService],
   templateUrl: './search.component.html',
@@ -28,6 +30,7 @@ import * as bikesData from '../../types/dummyData.json'
 export class SearchComponent implements OnInit, AfterViewInit {
   layout: string = 'grid';
   options = ['list', 'grid'];
+  selectedId: number | null = null;
 
   selectedCity: {name: string} | null = null;
   
@@ -35,7 +38,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   results: BikeObject[] = []
   bikes = signal<BikeObject[]>([])
   data: any = bikesData
-  visible2: boolean = false;
+  visible: boolean = false;
   filteredCities: { name: string; }[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private cityService: CityService ) {
@@ -43,6 +46,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {
@@ -65,9 +69,8 @@ export class SearchComponent implements OnInit, AfterViewInit {
     }
   }
 
-  public onViewDetails(item: BikeObject){
-    const id = item.id
-    this.router.navigate(['/bike', id]) 
+  selectItem(id: number): void {
+    this.selectedId = id;
+    this.visible = true
   }
-
 }

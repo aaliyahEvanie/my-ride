@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, SimpleChanges } from '@angular/core';
 import { BikeServiceService } from '../../services/bike-service.service';
 import { Bikedetail } from '../../types/bikedetail';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -17,50 +17,34 @@ import {Tag} from 'primeng/tag'
   styleUrl: './detail-view.component.css'
 })
 export class DetailViewComponent {
+  @Input() selectedId: number | null = null;
+  isDrawerOpen = false;
+
   private bikeService = inject(BikeServiceService);
   bike: Bikedetail | undefined | null
-  bikeId: number | undefined
+
   responsiveOptions: any[] | undefined;
- 
 
   constructor(private route: ActivatedRoute, private router: Router){
+   
 
   }
-
+ 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedId'] && this.selectedId !== null) {
+      if(this.selectedId){
+        this.bikeService.getBicycleDetails(this.selectedId).subscribe(bicycle => {
+          this.bike = bicycle
+        }) 
+      }
+    }
+  }
 
   ngOnInit(){
-    this.bikeId = Number(this.route.snapshot.paramMap.get('id'))
- 
-    this.bikeService.getBicycleDetails(this.bikeId).subscribe(bicycle => {
-      this.bike = bicycle
-    }) 
-
-
-    this.responsiveOptions = [
-      {
-          breakpoint: '1400px',
-          numVisible: 2,
-          numScroll: 1
-      },
-      {
-          breakpoint: '1199px',
-          numVisible: 3,
-          numScroll: 1
-      },
-      {
-          breakpoint: '767px',
-          numVisible: 2,
-          numScroll: 1
-      },
-      {
-          breakpoint: '575px',
-          numVisible: 1,
-          numScroll: 1
-      }
-  ]
+    this.bike = undefined
   }
-  goHome(){
-    this.router.navigate(['/'])
+  ngOnDestroy(){
+    this.bike = null
   }
 
 }

@@ -1,12 +1,4 @@
 <div style="overflow-y: scroll;">
-    <div style="margin-bottom: 24px;">
-        <h3>
-            <a (click)="goHome()" style="color: #00A8E0;">
-                <i class="pi pi-chevron-left" style="color: #00A8E0;"></i>    
-                Home
-            </a>
-        </h3>
-    </div>
     <ng-container *ngIf="bike; else noBikeDetails">
         <div class="detailsContainer" >
             <div class="header">
@@ -31,7 +23,7 @@
                         <p-carousel [value]="bike.public_images || []" [numVisible]="3" [numScroll]="3" [responsiveOptions]="responsiveOptions">
                             <ng-template let-image pTemplate="item">
                                 <div class="image-container">
-                                    <img [src]="image.medium" [alt]="image.name" style="height: 250px; width: 250px;"/>
+                                    <img [src]="image.medium" [alt]="image.name" style="height: 150px; width: 150px;"/>
                                 </div>
                             </ng-template>
                         </p-carousel>
