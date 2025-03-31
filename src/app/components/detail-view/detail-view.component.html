@@ -14,8 +14,21 @@
             </div>
             <div class="detailsWrapper">
                 <div class="leftColumn" >
+                    <ng-container *ngIf="bike?.stolen; else withOwner">
+                        <p-tag severity="danger" [rounded]="true" value="Stolen" class="flex-end"></p-tag>
+                    </ng-container>
+                    <ng-template #withOwner>
+                        <p-tag severity="success" [rounded]="true" value="With Owner"></p-tag>
+                    </ng-template>
+                    <ng-container *ngIf="bike?.stolen; else withOwner">
+                        <p>Stolen location: {{bike.stolen_record.location}}</p>
+                        <p>Theft Description: {{bike.stolen_record.theft_description}}</p>
+                        
+                    </ng-container>
+                </div>
+                <div class="rightColumn">
                     <ng-container *ngIf="bike?.public_images && bike.public_images.length > 0 else fallbackImage">
-                        <p-carousel [value]="bike.public_images || []" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+                        <p-carousel [value]="bike.public_images || []" [numVisible]="3" [numScroll]="3" [responsiveOptions]="responsiveOptions">
                             <ng-template let-image pTemplate="item">
                                 <div class="image-container">
                                     <img [src]="image.medium" [alt]="image.name" style="height: 250px; width: 250px;"/>
@@ -32,19 +45,6 @@
                         <p *ngIf="bike.frame_colors">Frame color: {{bike.frame_colors}}</p>
                         <p *ngIf="bike.year">Year: {{bike.year}}</p>
                     </div>
-                </div>
-                <div class="rightColumn">
-                    <ng-container *ngIf="bike?.stolen; else withOwner">
-                        <p-tag severity="danger" [rounded]="true" value="Stolen" class="flex-end"></p-tag>
-                    </ng-container>
-                    <ng-template #withOwner>
-                        <p-tag severity="success" [rounded]="true" value="With Owner"></p-tag>
-                    </ng-template>
-                    <ng-container *ngIf="bike?.stolen; else withOwner">
-                        <p>Stolen location: {{bike.stolen_record.location}}</p>
-                        <p>Theft Description: {{bike.stolen_record.theft_description}}</p>
-                        
-                    </ng-container>
                 </div>
             </div>
         </div>

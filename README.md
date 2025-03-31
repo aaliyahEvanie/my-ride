@@ -31,6 +31,9 @@ Google places API ~ for accurate city search results
     - Description
     - View More Button
 4. Detail view
+    - images
+    - basic information 
+    - if stolen a brief detail and description of it
 
 
 ### Areas for improvements
@@ -41,3 +44,7 @@ Google places API ~ for accurate city search results
 5. Add a skeleton loader 
 6. Improve the styling to use the design token system from primeng
 7. Environment build out service for google maps api
+8. Persist data  ~ signal state management
+9. Responsive design 
+10. Clean up state management
+11. Pagination?
